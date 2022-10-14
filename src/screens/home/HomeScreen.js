@@ -5,7 +5,7 @@ import React from 'react'
 import { FlatList, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import { CLIENTS } from '../../data';
-import { blue, btnCalendar, globalStyles, H6, lightBlue, lightGreyBackground, PADDING } from '../../theme/globals';
+import { blue, btnCalendar, fontColor, globalStyles, H6, lightBlue, lightGreyBackground, PADDING } from '../../theme/globals';
 import { useNavigation } from '@react-navigation/native';
 import SearchComponent from '../../components/SearchComponent';
 import Welcome from '../../components/Welcome';
@@ -29,12 +29,12 @@ const renderItem = ({ item, navigation }) => {
                 <Text style={styles.userId}>{item.id}</Text>
                 <View style={styles.userDate}>
                     <Text style={{ color: blue }}>{item.fecha}</Text>
-                    <Text>{item.hora}</Text>
+                    <Text style={{ color: fontColor }}>{item.hora}</Text>
                 </View>
             </View>
-            <Text>Id del cliente - {item.nombre} {item.hora} </Text>
-            <Text>{item.direccion} {item.piso}, </Text>
-            <Text>{item.oficina} {item.ciudad} </Text>
+            <Text style={{ color: fontColor }}>Id del cliente - {item.nombre} {item.hora} </Text>
+            <Text style={{ color: fontColor }}>{item.direccion} {item.piso}, </Text>
+            <Text style={{ color: fontColor }}>{item.oficina} {item.ciudad} </Text>
             <View style={styles.row}>
                 <Circle size={10} color={item.color} borderColor={item.color} />
                 <Text style={styles.tipoServicio}>{item.tipoServicio}</Text>
@@ -136,17 +136,20 @@ const styles = StyleSheet.create({
     userId: {
         flex: 1,
         fontWeight: "600",
-        fontSize: H6
+        fontSize: H6,
+        color: fontColor
     },
     userDate: {
         flex: 1,
         flexDirection: "row",
         justifyContent: "space-evenly",
+        color: fontColor
     },
     tipoServicio: {
         flex: 1,
         fontWeight: "500",
         fontSize: 14,
-        paddingLeft: 5
+        paddingLeft: 5,
+        color: fontColor
     },
 })

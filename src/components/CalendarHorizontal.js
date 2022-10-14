@@ -6,11 +6,6 @@ import { blue, btnCalendar } from '../theme/globals'
 const CalendarHorizontal = () => {
     const [currentIndex, setCurrentIndex] = useState(3)
 
-    // useEffect(() => {
-
-    // }, [])
-
-
     const handleDateSelect = (i) => {
         setCurrentIndex(i)
 
@@ -21,7 +16,6 @@ const CalendarHorizontal = () => {
         <View style={styles.calendarBox}>
             <FlatList
                 data={CALENDAR}
-                // style={styles.flatlist}
                 horizontal={true}
                 bounces={false}
                 showsHorizontalScrollIndicator={false}
@@ -31,8 +25,8 @@ const CalendarHorizontal = () => {
                             style={[styles.card, { backgroundColor: index === currentIndex ? btnCalendar : "transparent" }]}
                             onPress={() => handleDateSelect(index)}
                         >
-                            <Text style={[styles.number, { color: index === currentIndex ? "white" : "#1c1c1c" }]}>{item.number}</Text>
-                            <Text style={[styles.day, { color: index === currentIndex ? "white" : "#1c1c1c" }]}>{item.day}</Text>
+                            <Text style={{ color: index === currentIndex ? "white" : "#1c1c1c" }}>{item.number}</Text>
+                            <Text style={{ color: index === currentIndex ? "white" : "#1c1c1c" }}>{item.day}</Text>
                         </Pressable>
                     )
                 }}
@@ -46,7 +40,6 @@ export default CalendarHorizontal
 
 const styles = StyleSheet.create({
     calendarBox: {
-        // height: 40,
         flexDirection: "row",
         alignItems: "center"
     },
@@ -58,9 +51,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 7,
         borderRadius: 4
     },
-    number: {
-    },
-    day: {
-    },
+
 
 })

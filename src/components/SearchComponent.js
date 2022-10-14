@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Pressable, StyleSheet, Text, View, TextInput } from 'react-native'
-import { lightGrey } from '../theme/globals';
+import { fontColor, lightGrey } from '../theme/globals';
 import { Icon } from './icons'
 
 const SearchComponent = ({ url = "" }) => {
@@ -51,5 +51,6 @@ const styles = StyleSheet.create({
     input: {
         backgroundColor: "white",
         flex: 1,
+        color: fontColor
     },
 })

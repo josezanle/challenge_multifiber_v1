@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Dimensions, FlatList, LayoutAnimation, StyleSheet, Text, Pressable, View, Button } from 'react-native';
 import Br from '../../components/Br';
 import { Icon } from '../../components/icons';
-import { colorWhite, H5, H6, PADDING } from '../../theme/globals';
+import { colorWhite, fontColor, H5, H6, PADDING } from '../../theme/globals';
 import { tabs } from './tabs';
 
 const { width } = Dimensions.get('window');
@@ -78,7 +78,7 @@ const OrdenScreen = ({ route }) => {
 
                 <View style={[styles.userBox, { paddingLeft: 10 }]}>
                     <Text style={styles.title}>Orden de servicio</Text>
-                    <Text style={{ fontWeight: "bold" }}>{item.id} </Text>
+                    <Text style={{ fontWeight: "bold", color: fontColor }}>{item.id} </Text>
                 </View>
 
                 <View style={[styles.userBox, { paddingLeft: 10 }]}>
@@ -111,7 +111,7 @@ const OrdenScreen = ({ route }) => {
                                 key={index}
                                 style={styles.headerItem}
                             >
-                                <Text>{item.tab}</Text>
+                                <Text style={{color:fontColor}}>{item.tab}</Text>
                             </Pressable>
                         </View>
                     )}
@@ -194,10 +194,12 @@ const styles = StyleSheet.create({
     title: {
         flex: 1,
         fontSize: H5,
+        color: fontColor
     },
     user: {
         flex: 1,
         fontSize: H6,
+        color:fontColor
     },
     button: {
         backgroundColor: "#2a80fe",

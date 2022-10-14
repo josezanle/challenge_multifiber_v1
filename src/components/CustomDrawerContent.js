@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ProfileAvatar from './ProfileAvatar'
 import { Icon } from './icons'
-import { blue, globalStyles, PADDING } from '../theme/globals'
+import { blue, fontColor, globalStyles, PADDING } from '../theme/globals'
 import Br from './Br'
 import SearchComponent from './SearchComponent'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -12,7 +12,7 @@ import Circle from './Circle'
 
 const profileAvatarExample = "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 const { row, center } = globalStyles;
-const paddingLeft = { "paddingLeft": 15 };
+const paddingLeft = { "paddingLeft": 15, "color": fontColor };
 
 
 const CustomDrawerContent = () => {
@@ -27,9 +27,9 @@ const CustomDrawerContent = () => {
         console.log("handleShare..")
     };
 
-    const handleLogOut = () => {
+    const handleLogOut = async() => {
         console.log("LogOut..")
-        AsyncStorage.clear()
+        await AsyncStorage.clear()
         // navigate.navigate("LoginScreen", {
         //     screen: "LoginScreen"
         // })
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
         paddingLeft: 16
     },
     user: {
-        color: "grey",
+        color: fontColor,
         fontWeight: "500",
         fontSize: 18
     },

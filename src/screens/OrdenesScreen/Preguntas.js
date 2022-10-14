@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { H5, H6, lightBlue, lightBlueBackground, PADDING, windowWidth } from '../../theme/globals'
+import { fontColor, H5, H6, lightBlue, lightBlueBackground, PADDING, windowWidth } from '../../theme/globals'
 import Box from '../../components/Box'
 
 const Preguntas = () => {
@@ -29,9 +29,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: H6,
-    fontWeight: "700"
+    fontWeight: "700",
+    color: fontColor
   },
   desc: {
-    marginTop: 5
+    marginTop: 5,
+    color: fontColor
   },
 })

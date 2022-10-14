@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { blue, H6, PADDING, windowWidth, yellow } from '../../theme/globals'
+import { blue, fontColor, H6, PADDING, windowWidth, yellow } from '../../theme/globals'
 import Box from '../../components/Box'
 import Circle from '../../components/Circle'
 import Br from '../../components/Br'
@@ -18,11 +18,11 @@ const Datos = () => {
                     <Text style={styles.userId}>Agendamiento</Text>
                     <View style={styles.userDate}>
                         <Text style={{ color: blue }}>22/08/22</Text>
-                        <Text>4:00pm</Text>
+                        <Text style={{ color: fontColor }}>4:00pm</Text>
                     </View>
                 </View>
                 <View style={styles.row}>
-                    <Text>Plan Familiar Full 5G   </Text>
+                    <Text style={{ color: fontColor }}>Plan Familiar Full 5G   </Text>
                     <Text style={styles.userId}>FTTH</Text>
                 </View>
                 <View style={styles.row}>
@@ -60,12 +60,14 @@ const styles = StyleSheet.create({
     userId: {
         flex: 1,
         fontWeight: "600",
-        fontSize: H6
+        fontSize: H6,
+        color: fontColor
     },
     type: {
         fontWeight: "600",
         fontSize: 14,
         paddingLeft: 10,
+        color: fontColor
     },
     linkText: {
         fontWeight: "600",
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         justifyContent: "space-evenly",
+        color: fontColor
     },
     button: {
         backgroundColor: "#2a80fe",

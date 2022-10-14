@@ -1,4 +1,5 @@
 import { BASE_URL } from "./baseUrl";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 export const apiLogin = async (data) => {
@@ -13,6 +14,7 @@ export const apiLogin = async (data) => {
             body: JSON.stringify(data)
         })
         const json = await response.json()
+        await AsyncStorage.setItem('userToken', JSON.stringify(json.token))
 
         return json.token
 

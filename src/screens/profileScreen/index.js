@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 import { Icon } from '../../components/icons'
-import { globalStyles, H5, H6, PADDING } from '../../theme/globals'
+import { fontColor, globalStyles, H5, H6, PADDING } from '../../theme/globals'
 import Circle from '../../components/Circle'
 import Br from '../../components/Br'
 import ProfileAvatar from '../../components/ProfileAvatar'
@@ -128,7 +128,8 @@ const styles = StyleSheet.create({
     },
     user: {
         flex: 1,
-        fontSize: H5
+        fontSize: H5,
+        color: fontColor
     },
     editIcon: {
         position: "absolute",
@@ -138,20 +139,24 @@ const styles = StyleSheet.create({
     },
     activoText: {
         marginLeft: 10,
-        fontWeight: "500"
+        fontWeight: "500",
+        color: fontColor
     },
     tecnicoText: {
         fontSize: H6,
         fontWeight: "500",
         marginTop: 5,
-        paddingLeft: 15
+        paddingLeft: 15,
+        color: fontColor
     },
     categori: {
         fontSize: H6,
         fontWeight: "400",
+        color: fontColor
     },
     content: {
         fontSize: H6,
         fontWeight: "bold",
+        color: fontColor
     },
 })

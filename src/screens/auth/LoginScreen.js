@@ -31,9 +31,7 @@ const GradientBg = () => {
     )
 }
 
-const comingSoon = () => {
-    ToastAndroid.show("Muy Pronto Disponible", ToastAndroid.CENTER);
-};
+
 const LoginScreen = () => {
     const [username, setUsername] = useState("prueba_user")
     const [password, setPassword] = useState("V5LEh7v7G5y8sByz")
@@ -43,9 +41,11 @@ const LoginScreen = () => {
 
     const handleLogin = () => {
         apiLogin(user)
-            .then(res => {
-                AsyncStorage.setItem('userToken', res)
+            .then(() => {
                 navigation.navigate("HomeStack")
+            })
+            .catch(error => {
+                console.log(error)
             })
     }
 
@@ -74,7 +74,7 @@ const LoginScreen = () => {
                         onChangeText={(text) => setPassword(text)}
                         keyboardType="password"
                     />
-                    <Pressable onPress={comingSoon}>
+                    <Pressable>
                         <Text style={styles.recuperar}>Recuperar Contraseña?</Text>
                     </Pressable>
 

@@ -2,7 +2,7 @@ import { Button, Image, StyleSheet, Text, View, Pressable } from 'react-native'
 import React, { useState } from 'react'
 
 import ImagePicker from 'react-native-image-crop-picker';
-import { H6, lightBlue, lightBlueBackground, PADDING, windowWidth } from '../../theme/globals';
+import { fontColor, H6, lightBlue, lightBlueBackground, PADDING, windowWidth } from '../../theme/globals';
 import Box from '../../components/Box';
 
 const Imagenes = () => {
@@ -51,9 +51,11 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: H6,
-        fontWeight: "700"
+        fontWeight: "700",
+        color: fontColor
     },
     desc: {
-        marginTop: 10
+        marginTop: 10,
+        color: fontColor
     },
 })
