@@ -1,58 +1,59 @@
 import 'react-native-gesture-handler';
 
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Drawer = createDrawerNavigator();
+import DrawerNavigattor from './src/navigators/Drawer';
+import AuthStack from './src/navigators/AuthStack';
+import { PermissionsProvider } from './src/context/PermissionsContext';
 
-const url = 'https://webhooks.multifiber.cl/api/v1/auth/obtain_token/'
-const config = {
-  "username": "prueba_user",
-  "password": "V5LEh7v7G5y8sByz"
+const Stack = createStackNavigator();
+
+const AppState = ({ children }) => {
+  return (
+    <PermissionsProvider>
+      {children}
+    </PermissionsProvider>
+  )
+
 }
 
 const App = () => {
-
-  const [userToken, setUserToken] = useState(null)
-
-
-  const getUserToken = async () => {
-    const response = await fetch(url, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: "POST",
-      body: JSON.stringify(config)
-    })
-    const json = await response.json()
-    setUserToken(json.token)
-
-  }
+  const [isSignedIn, setIsSignedIn] = useState(false)
 
   useEffect(() => {
-    getUserToken()
+    storageUserToken()
   }, [])
-  console.log(userToken)
 
-  const Home = () => { 
-    return (
-      <View>
-        <Text>{userToken !== null | userToken !== undefined ? userToken : "No hay Token"}</Text>
-      </View>
-    )
-   }
+  const storageUserToken = async () => {
+    try {
+      const value = await AsyncStorage.getItem('userToken')
+      if (value !== null) {
+        // value previously stored
+        setIsSignedIn(true)
+      }
+    } catch (e) {
+      // error reading value
+      console.log("TOKEN NO ALMACENANDO:", e)
+      setIsSignedIn(false)
+    }
+  }
+
+
 
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Home" component={Home} />
-      </Drawer.Navigator>
-      
-
+      <AppState>
+        {
+          isSignedIn ? (
+            <DrawerNavigattor />
+          ) : (
+            <AuthStack />
+          )
+        }
+      </AppState>
     </NavigationContainer>
   )
 }

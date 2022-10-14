@@ -47,5 +47,11 @@ allprojects {
         }
         google()
         maven { url 'https://www.jitpack.io' }
+        
+        // camera picker
+        maven { url 'https://maven.google.com' }
+
+        // camera picker
+        maven { url "https://www.jitpack.io" }
     }
 }
